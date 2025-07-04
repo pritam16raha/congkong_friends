@@ -9,10 +9,16 @@ Demonstration Video: https://drive.google.com/file/d/1sm5rEEdoN383FsIp22_Cn0SGYq
 GitHub Repository: https://github.com/pritam16raha/congkong_friends.git
 
 Supabase Account email: rahapritam32@gmail.com
+
 Supabase Account Password: Pritam@551175
+
 Organization name: rahapritam32@gmail.com's Org
+
 Project name: CONGKONG_FRIENDS
 
+![Dashboard Preview](https://raw.githubusercontent.com/pritam16raha/congkong_friends/main/dashboard.png)
+
+![Database Schema](https://raw.githubusercontent.com/pritam16raha/congkong_friends/main/database.png)
 
 Dashboard Preview
 Features
