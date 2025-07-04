@@ -15,7 +15,7 @@ export default function Home() {
             Unlock Insights, Drive Growth.
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
-            Welcome to the Real-Time KPI Dashboard. Monitor your event's
+            Welcome to the Real-Time KPI Dashboard. Monitor your event&apos;s
             performance, track matches, and gain valuable insights instantly.
           </p>
           <div className="mt-8">
