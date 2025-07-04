@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Congkong Friends - Real-Time KPI Dashboard
+This project is a full-stack web application developed for the Congkong Friends competency assessment. It features a real-time, responsive KPI dashboard built with Next.js and backed by a Supabase database.
 
-## Getting Started
+Quick Links
+Live Deployed Application: https://congkong-friends.vercel.app/
 
-First, run the development server:
+Demonstration Video: https://drive.google.com/file/d/1sm5rEEdoN383FsIp22_Cn0SGYqErJoP0/view?usp=drive_link
 
-```bash
+GitHub Repository: https://github.com/pritam16raha/congkong_friends.git
+
+Supabase Account email: rahapritam32@gmail.com
+Supabase Account Password: Pritam@551175
+Organization name: rahapritam32@gmail.com's Org
+Project name: CONGKONG_FRIENDS
+
+
+Dashboard Preview
+Features
+Dynamic KPI Cards: Displays key metrics such as total participants, matches, and meetings fetched directly from the backend.
+
+Live Activity Chart: Visualizes user activity over time with a multi-line chart rendered using Recharts.
+
+Responsive Design: Fully responsive layout that adapts seamlessly from desktop to mobile devices, featuring a slide-out sidebar for smaller screens.
+
+Backend API: A robust backend built with Next.js API Routes to handle data fetching and manipulation.
+
+Database Integration: Utilizes Supabase for the PostgreSQL database, with a well-structured schema.
+
+Schema-as-Code: Manages the database schema using Drizzle ORM, allowing for version control and type safety.
+
+Data Seeding Panel: An in-app control panel to easily populate the database with test data for demonstration purposes.
+
+Modern Component Architecture: Follows best practices by co-locating page-specific components and maintaining a library of reusable components.
+
+Database Schema
+The database schema was designed to support all the dynamic features of the dashboard.
+
+Tech Stack
+Framework: Next.js
+
+Styling: Tailwind CSS
+
+UI Components: React
+
+Charting: Recharts
+
+Database: Supabase (PostgreSQL)
+
+ORM: Drizzle ORM
+
+Getting Started Locally
+To run this project on your local machine, follow these steps:
+
+1. Prerequisites
+Make sure you have Node.js (v18 or later) and npm installed on your system.
+
+2. Clone the Repository
+git clone https://github.com/pritam16raha/congkong_friends.git
+cd congkong_friends
+
+3. Install Dependencies
+npm install
+
+4. Set Up Environment Variables
+Create a new file named .env.local in the root of the project by copying the example file.
+
+cp .env.example .env.local
+
+Open .env.local and fill in your Supabase database connection string. You can find this in your Supabase project's settings under Database > Connection string. Use the Direct connection string.
+
+5. Push the Database Schema
+Run the following command to migrate the schema defined in the code to your Supabase database.
+
+npx drizzle-kit push:pg
+
+6. Run the Development Server
+Start the Next.js development server.
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application should now be running at http://localhost:3000. You can navigate to the /dashboard route to see the main application.
