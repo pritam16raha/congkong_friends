@@ -6,7 +6,8 @@ type Action =
   | "ADD_PARTICIPANTS"
   | "CREATE_MEETING"
   | "CREATE_MATCHES"
-  | "ADD_ACTIVITY_LOGS";
+  | "ADD_ACTIVITY_LOGS"
+  | "DELETE_ALL_DATA";
 
 export const SeedingControlPanel = () => {
   const [loading, setLoading] = useState(false);
@@ -77,6 +78,14 @@ export const SeedingControlPanel = () => {
           className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 disabled:bg-gray-400"
         >
           {loading ? "Working..." : "Add Activity Logs"}
+        </button>
+
+        <button
+          onClick={() => handleSeed("DELETE_ALL_DATA")}
+          disabled={loading}
+          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 disabled:bg-gray-400"
+        >
+          {loading ? "Working..." : "Clear All Data"}
         </button>
       </div>
       {message && <p className="mt-4 text-sm text-gray-600">{message}</p>}

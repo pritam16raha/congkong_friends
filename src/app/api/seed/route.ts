@@ -116,6 +116,20 @@ export async function POST(request: Request) {
         );
         return NextResponse.json({ message: "Added 20 new matches." });
 
+      case "DELETE_ALL_DATA":
+        console.log("Attempting to delete all data...");
+        await Promise.all([
+          db.delete(schema.meetingParticipants),
+          db.delete(schema.activityLogs),
+          db.delete(schema.matches),
+        ]);
+        await db.delete(schema.meetings);
+        await db.delete(schema.participants);
+
+        return NextResponse.json({
+          message: `All data has been cleared successfully.`,
+        });
+
       default:
         return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }

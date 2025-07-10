@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import * as schema from "@/db/schema";
-import { sql, count, avg, desc } from "drizzle-orm";
+import { sql, count, avg, desc, countDistinct } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -18,6 +18,9 @@ export async function GET() {
         .select({ value: avg(schema.meetings.satisfactionScore) })
         .from(schema.meetings),
       totalMeetings: db.select({ value: count() }).from(schema.meetings),
+      distinctIndustries: db
+        .select({ value: countDistinct(schema.participants.industry) })
+        .from(schema.participants),
     };
 
     const [
@@ -26,6 +29,7 @@ export async function GET() {
       totalMatchesRes,
       avgSatisfactionRes,
       totalMeetingsRes,
+      distinctIndustriesRes,
     ] = await Promise.all(Object.values(kpiPromises));
 
     const kpis = {
@@ -123,10 +127,13 @@ export async function GET() {
       .from(schema.participants)
       .where(sql`${schema.participants.profileCompleted} = false`);
 
+    const industryCount = distinctIndustriesRes[0].value;
+    const industryText = industryCount === 1 ? "industry" : "industries";
+
     const insights = [
       {
         title: "Surge Industry-Identified",
-        message: "Match success rate between 4 industries assigned-quality",
+        message: `Match success rate between ${industryCount} ${industryText} assigned-quality`,
       },
       {
         title: "Numerous Incompleted Profiles",
@@ -140,7 +147,6 @@ export async function GET() {
       meetingInAnticipation,
       activityByTime,
       insights,
-      
     });
   } catch (error) {
     console.error("API Error:", error);
